@@ -1,0 +1,43 @@
+﻿@model CRM1.Models.AddLead
+@using CRM1.Models.Domain
+
+@{
+}
+<h1>Add Lead</h1>
+<form method="post" asp-action="Add">
+    <div class="mb-3">
+        <label class="form-label">Company Name</label>
+        <input type="text" class="form-control" asp-for="CompanyName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Company Type</label>
+        <select class="form-control" asp-for="CompaType">
+            @foreach (var value in Enum.GetValues(typeof(CompanyType)))
+            {
+                <option value="@value">@value</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Employee Count</label>
+        <input type="number" class="form-control" asp-for="EmployeeCount">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Decision Maker</label>
+        <input type="text" class="form-control" asp-for="DmName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="Email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" asp-for="Address">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,39 @@
+﻿@model List<CRM1.Models.Domain.CRM>
+@{
+}
+
+<h1>Leads</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Comapny Name</th>
+            <th>Company Type</th>
+            <th>Employee Count</th>
+            <th>Decision Maker Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var lead in Model)
+        {
+            <tr>
+                <td>@lead.Id</td>
+                <td>@lead.CompanyName</td>
+                <td>@lead.CompaType</td>
+                <td>@lead.EmployeeCount</td>
+                <td>@lead.DmName</td>
+                <td>@lead.PhoneNumber</td>
+                <td>@lead.Email</td>
+                <td>@lead.Address</td>
+                <td>
+                    <a href="@Url.Action("OpenGoogleMaps", "CRM", new { address = lead.Address })" target="_blank">@lead.Address</a>
+                </td>
+                <td><a href="CRM/View/@lead.Id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
